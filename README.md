@@ -2,10 +2,10 @@
 
 **Recent apps**
 
-- <a href="https://agent.calabrodesign.com/" target="_blank" rel="noopener noreferrer">Agentic AI</a>
-- <a href="https://css.calabrodesign.com/" target="_blank" rel="noopener noreferrer">CSS Extractor</a>
-- <a href="https://parser.calabrodesign.com/" target="_blank" rel="noopener noreferrer">Document Parser</a>
-- <a href="https://crumbs.calabrodesign.com/" target="_blank" rel="noopener noreferrer">CrumbTrail</a>
+- 🤖 <a href="https://agent.calabrodesign.com/" target="_blank" rel="noopener noreferrer">Agentic AI</a>
+- 🎨 <a href="https://css.calabrodesign.com/" target="_blank" rel="noopener noreferrer">CSS Extractor</a>
+- 📄 <a href="https://parser.calabrodesign.com/" target="_blank" rel="noopener noreferrer">Document Parser</a>
+- 🍪 <a href="https://crumbs.calabrodesign.com/" target="_blank" rel="noopener noreferrer">CrumbTrail</a>
 
 ## Architectures & Frameworks
 
