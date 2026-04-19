@@ -1,4 +1,4 @@
-# Lifelong creative and designer working on AI orchestration systems, agent architecture, delivery pipelines, and interface experiences for people who like their software smart, useful, and a little dangerous.
+## Lifelong creative and designer working on AI orchestration systems, agent architecture, delivery pipelines, and interface experiences for people who like their software smart, useful, and a little dangerous.
 
 **Recent apps**
 
