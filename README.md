@@ -13,16 +13,14 @@ AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelin
   \___|/_/ \_\ |____| /_/ \_\ |___/|_|_\  \___/
 ```
 
----
-
 **Recent apps**
 
-- 🤖 <a href="https://agent.calabrodesign.com/" target="_blank" rel="noopener noreferrer">Agentic AI</a>
-- 🎨 <a href="https://css.calabrodesign.com/" target="_blank" rel="noopener noreferrer">CSS Extractor</a>
-- 📄 <a href="https://parser.calabrodesign.com/" target="_blank" rel="noopener noreferrer">Document Parser</a>
-- 🍪 <a href="https://crumbs.calabrodesign.com/" target="_blank" rel="noopener noreferrer">CrumbTrail</a>
-
----
+|     | App                                                  | Description                                                                                     |
+| --- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| 🤖  | [Agentic AI](https://agent.calabrodesign.com/)       | Browsable library of enterprise skill files, role-based workflows, and reusable agent playbooks |
+| 🎨  | [CSS Extractor](https://css.calabrodesign.com/)      | Extract colors, typography, design tokens, and raw CSS patterns from any public website         |
+| 📄  | [Document Parser](https://parser.calabrodesign.com/) | Browser-based OCR that converts PDFs, scans, and images into usable text                        |
+| 🍪  | [CrumbTrail](https://crumbs.calabrodesign.com/)      | Scans any public page for trackers, analytics scripts, ad pixels, and cookies                   |
 
 ## Architectures & Frameworks
 
