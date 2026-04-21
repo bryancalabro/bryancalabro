@@ -1,6 +1,23 @@
 # Engineering experiences for people who like their software smart, useful, and a little dangerous.
 
-![AI Orchestration](https://img.shields.io/badge/AI%20Orchestration-1a1a2e?style=flat-square&logoColor=white)&nbsp;![Agent Architecture](https://img.shields.io/badge/Agent%20Architecture-0f3460?style=flat-square&logoColor=white)&nbsp;![Delivery Pipelines](https://img.shields.io/badge/Delivery%20Pipelines-0d2e1a?style=flat-square&logoColor=white)
+AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelines
+
+<details>
+<summary>ASCII Signature</summary>
+<br>
+
+```
+                (                   (        )
+   (     (      )\ )    (       (   )\ )  ( /(
+   )\    )\    (()/(    )\    ( )\ (()/(  )\())
+ (((_)((((_)(   /(_))((((_)(  )((_) /(_))((_)\
+ )\___ )\ _ )\ (_))   )\ _ )\((_)_ (_))    ((_)
+((/ __|(_)_\(_)| |    (_)_\(_)| _ )| _ \  / _ \
+ | (__  / _ \  | |__   / _ \  | _ \|   / | (_) |
+  \___|/_/ \_\ |____| /_/ \_\ |___/|_|_\  \___/
+```
+
+</details>
 
 ---
 
@@ -648,3 +665,5 @@ flowchart TD
 ```
 
 </details>
+
+---
