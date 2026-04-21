@@ -172,7 +172,81 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>4. AI Delivery Pipeline</b><br><i>The end-to-end workflow of how tickets and tasks move through the delivery pipeline.</i></summary>
+<summary><b>4. Ticket Lifecycle & Human Revision Loop</b><br><i>The full round-trip of a ticket — from creation in an external tracker, through the AI pipeline, back to the tracker for human review, and re-entry on edit request.</i></summary>
+<br>
+
+```mermaid
+flowchart TD
+    subgraph TRACKER["① TRACKER — Ticket Created"]
+        TK[Ticket Opened\nJira · Linear · GitHub Issues]
+        TF[Fields\nTitle · Description · Acceptance Criteria · Labels · Epic]
+        TK --> TF
+    end
+
+    subgraph TRIGGER["② TRIGGER — Pipeline Activated"]
+        WH[Webhook / Scheduled Poll\nDetects New or Updated Ticket]
+        NRM[Normalize & Ingest\nExtract Metadata · Link Artifacts]
+        TF --> WH --> NRM
+    end
+
+    subgraph PIPELINE["③ AI PIPELINE — See Diagram 5 for Full Detail"]
+        CTX[Context Assembly\nRetrieve · Pack · Validate]
+        ORCH[Orchestrate & Execute\nRequirements · Architecture · Code Gen · QA]
+        ENV[Output Envelope\nPR · Updated Ticket Body · ADR · Artifacts]
+        NRM --> CTX --> ORCH --> ENV
+    end
+
+    subgraph PUSHBACK["④ PUSH BACK — Update the Tracker"]
+        UPD[Agent Writes Back\nUpdated Description · Linked PR · Comment with Artifacts]
+        STAT[Status Updated\nIn Review · Awaiting Approval]
+        ENV --> UPD --> STAT
+    end
+
+    subgraph REVIEW["⑤ HUMAN REVIEW — Review in Tracker"]
+        HR{Human Reviews Ticket\nApprove · Request Edits · Reject}
+        STAT --> HR
+    end
+
+    subgraph EDITLOOP["⑥ EDIT REQUEST — Re-enters the Pipeline"]
+        EC[Revision Comment Added\nHuman Describes Requested Changes]
+        WH2[Webhook Fires Again\nRevision Context Appended to Ticket]
+        RELOAD[Pipeline Re-runs\nPrior Output + Edit Instructions Loaded as Context]
+        EC --> WH2 --> RELOAD
+    end
+
+    subgraph RESOLVE["⑦ RESOLVE — Done"]
+        APPROVE[Approved\nTicket Closed · PR Merged]
+        REJECT[Rejected\nTicket Moved to Backlog · Archived]
+        HR -->|approved| APPROVE
+        HR -->|rejected| REJECT
+    end
+
+    HR -->|request edits| EC
+    RELOAD -.->|re-enters pipeline| CTX
+
+    classDef trackerStyle fill:#1a1a2e,stroke:#4a9eff,color:#e0e0ff
+    classDef triggerStyle fill:#16213e,stroke:#4a9eff,color:#e0e0ff
+    classDef pipelineStyle fill:#0f3460,stroke:#7ec8e3,color:#e0e0ff
+    classDef pushbackStyle fill:#0d2e1a,stroke:#2ecc71,color:#e0e0ff
+    classDef humanStyle fill:#2e1f00,stroke:#f5a623,color:#ffe0a0,stroke-width:2px
+    classDef editStyle fill:#2e1f00,stroke:#f5a623,color:#ffe0a0
+    classDef resolveStyle fill:#0d2e1a,stroke:#2ecc71,color:#e0e0ff
+    classDef rejectStyle fill:#2e0a0a,stroke:#e74c3c,color:#ffcccc
+
+    class TK,TF trackerStyle
+    class WH,NRM triggerStyle
+    class CTX,ORCH,ENV pipelineStyle
+    class UPD,STAT pushbackStyle
+    class HR humanStyle
+    class EC,WH2,RELOAD editStyle
+    class APPROVE resolveStyle
+    class REJECT rejectStyle
+```
+
+</details>
+
+<details>
+<summary><b>5. AI Delivery Pipeline</b><br><i>The end-to-end workflow of how tickets and tasks move through the delivery pipeline.</i></summary>
 <br>
 
 ```mermaid
@@ -261,7 +335,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>5. Context Assembly Flow</b><br><i>The process of extracting, indexing, and assembling unstructured tickets into agent-ready context packs.</i></summary>
+<summary><b>6. Context Assembly Flow</b><br><i>The process of extracting, indexing, and assembling unstructured tickets into agent-ready context packs.</i></summary>
 <br>
 
 ```mermaid
@@ -328,7 +402,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>6. Agent Handoff Flow</b><br><i>The internal execution loop outlining how a single agent reasons, packages, and routes tasks.</i></summary>
+<summary><b>7. Agent Handoff Flow</b><br><i>The internal execution loop outlining how a single agent reasons, packages, and routes tasks.</i></summary>
 <br>
 
 ```mermaid
@@ -399,7 +473,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>7. Retry and Error Routing</b><br><i>The evaluation routing and remediation process for correctly handling and recovering from agent failures.</i></summary>
+<summary><b>8. Retry and Error Routing</b><br><i>The evaluation routing and remediation process for correctly handling and recovering from agent failures.</i></summary>
 <br>
 
 ```mermaid
@@ -483,7 +557,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>8. Feedback Loop</b><br><i>The continuous improvement loop for feeding failure patterns and evaluations back into system components.</i></summary>
+<summary><b>9. Feedback Loop</b><br><i>The continuous improvement loop for feeding failure patterns and evaluations back into system components.</i></summary>
 <br>
 
 ```mermaid
@@ -568,4 +642,3 @@ flowchart TD
 ```
 
 </details>
-
