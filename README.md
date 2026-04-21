@@ -2,10 +2,6 @@
 
 AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelines
 
-<details>
-<summary>ASCII Signature</summary>
-<br>
-
 ```
                 (                   (        )
    (     (      )\ )    (       (   )\ )  ( /(
@@ -16,8 +12,6 @@ AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelin
  | (__  / _ \  | |__   / _ \  | _ \|   / | (_) |
   \___|/_/ \_\ |____| /_/ \_\ |___/|_|_\  \___/
 ```
-
-</details>
 
 ---
 
