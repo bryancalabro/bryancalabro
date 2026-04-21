@@ -1,4 +1,8 @@
-## AI orchestration systems, agent architecture, and delivery pipelines. Interface experiences for people who like their software smart, useful, and a little dangerous.
+# Engineering experiences for people who like their software smart, useful, and a little dangerous.
+
+![AI Orchestration](https://img.shields.io/badge/AI%20Orchestration-1a1a2e?style=flat-square&logoColor=white) ![Agent Architecture](https://img.shields.io/badge/Agent%20Architecture-0f3460?style=flat-square&logoColor=white) ![Delivery Pipelines](https://img.shields.io/badge/Delivery%20Pipelines-0d2e1a?style=flat-square&logoColor=white)
+
+---
 
 **Recent apps**
 
@@ -6,6 +10,8 @@
 - 🎨 <a href="https://css.calabrodesign.com/" target="_blank" rel="noopener noreferrer">CSS Extractor</a>
 - 📄 <a href="https://parser.calabrodesign.com/" target="_blank" rel="noopener noreferrer">Document Parser</a>
 - 🍪 <a href="https://crumbs.calabrodesign.com/" target="_blank" rel="noopener noreferrer">CrumbTrail</a>
+
+---
 
 ## Architectures & Frameworks
 
