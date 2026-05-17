@@ -15,12 +15,12 @@ AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelin
 
 **Recent apps**
 
-| Name                                                 | Description                                                                                     |
-| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| [Agentic AI](https://agent.calabrodesign.com/)       | Browsable library of enterprise skill files, role-based workflows, and reusable agent playbooks |
-| [CSS Extractor](https://css.calabrodesign.com/)      | Extract colors, typography, design tokens, and raw CSS patterns from any public website         |
-| [Document Parser](https://parser.calabrodesign.com/) | Browser-based OCR that converts PDFs, scans, and images into usable text                        |
-| [CrumbTrail](https://crumbs.calabrodesign.com/)      | Scans any public page for trackers, analytics scripts, ad pixels, and cookies                   |
+| Name                                                    | Description                                                                                     |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| [Essays & Thoughts](https://research.bryancalabro.com/) | Browsable library of essays on AI, infrastructure, security, design, and emerging tech strategy |
+| [Agentic AI](https://agent.bryancalabro.com/)           | Browsable library of enterprise skill files, role-based workflows, and reusable agent playbooks |
+| [CSS Extractor](https://css.bryancalabro.com/)          | Extract colors, typography, design tokens, and raw CSS patterns from any public website         |
+| [Document Parser](https://parser.bryancalabro.com/)     | Browser-based OCR that converts PDFs, scans, and images into usable text                        |
 
 ## Architectures & Frameworks
 
@@ -187,7 +187,71 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>4. Ticket Lifecycle & Human Revision Loop</b><br><i>The full round-trip of a ticket — from creation in an external tracker, through the AI pipeline, back to the tracker for human review, and re-entry on edit request.</i></summary>
+<summary><b>4. Agent System Topology</b><br><i>The runtime topology of an agentic system — how triggers, orchestration, agents, skills, and governance fit together.</i></summary>
+<br>
+
+```mermaid
+flowchart TD
+    subgraph TRIGGER["① TRIGGER — External Events"]
+        EV1([External Event])
+        EV2([External Event])
+        WH[Webhook\nPush-based Trigger]
+        WK[Worker\nPoll-based Trigger]
+        EV1 --> WH
+        EV2 --> WK
+    end
+
+    subgraph COORD["② COORDINATE — The Brain"]
+        ORC[Orchestrator\nRoutes · Coordinates · Reviews]
+        WH --> ORC
+        WK --> ORC
+    end
+
+    subgraph AGENTS["③ AGENTS — Domain Specialists"]
+        AGa[Agent A\nDomain Specialist]
+        AGb[Agent B\nDomain Specialist]
+        AGc[Agent C\nDomain Specialist]
+        SKa[Skills\nSkill 1 · Skill 2 · Skill 3]
+        SUB[Sub-Agent\nComplex Subtask]
+        SKb[Skills\nSkill 1 · Skill 2]
+        ORC --> AGa
+        ORC --> AGb
+        ORC --> AGc
+        AGa --> SKa
+        AGb --> SUB
+        SUB --> SKb
+    end
+
+    subgraph GOVERN["④ GOVERN — State, Safety, Audit"]
+        MEM[(Memory\nShort + Long-term State)]
+        GRD[[Guardrails\nPre-action Enforcement]]
+        AUD{{Audit Log\nEvery Decision + Tool Call}}
+        ORC -.-> GRD
+        AGa -.-> MEM
+        AGb -.-> MEM
+        AGc -.-> MEM
+        AGa -.-> AUD
+        AGb -.-> AUD
+        AGc -.-> AUD
+    end
+
+    classDef triggerStyle fill:#1a1a2e,stroke:#4a9eff,color:#e0e0ff
+    classDef coordStyle fill:#0d2137,stroke:#7ec8e3,color:#e0e0ff
+    classDef agentStyle fill:#0f3460,stroke:#7ec8e3,color:#e0e0ff
+    classDef subStyle fill:#1a0a2e,stroke:#9b59b6,color:#e0e0ff
+    classDef governStyle fill:#0d2e1a,stroke:#2ecc71,color:#e0e0ff
+
+    class EV1,EV2,WH,WK triggerStyle
+    class ORC coordStyle
+    class AGa,AGb,AGc,SKa agentStyle
+    class SUB,SKb subStyle
+    class MEM,GRD,AUD governStyle
+```
+
+</details>
+
+<details>
+<summary><b>5. Ticket Lifecycle & Human Revision Loop</b><br><i>The full round-trip of a ticket — from creation in an external tracker, through the AI pipeline, back to the tracker for human review, and re-entry on edit request.</i></summary>
 <br>
 
 ```mermaid
@@ -261,7 +325,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>5. AI Delivery Pipeline</b><br><i>The end-to-end workflow of how tickets and tasks move through the delivery pipeline.</i></summary>
+<summary><b>6. AI Delivery Pipeline</b><br><i>The end-to-end workflow of how tickets and tasks move through the delivery pipeline.</i></summary>
 <br>
 
 ```mermaid
@@ -350,7 +414,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>6. Context Assembly Flow</b><br><i>The process of extracting, indexing, and assembling unstructured tickets into agent-ready context packs.</i></summary>
+<summary><b>7. Context Assembly Flow</b><br><i>The process of extracting, indexing, and assembling unstructured tickets into agent-ready context packs.</i></summary>
 <br>
 
 ```mermaid
@@ -417,7 +481,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>7. Agent Handoff Flow</b><br><i>The internal execution loop outlining how a single agent reasons, packages, and routes tasks.</i></summary>
+<summary><b>8. Agent Handoff Flow</b><br><i>The internal execution loop outlining how a single agent reasons, packages, and routes tasks.</i></summary>
 <br>
 
 ```mermaid
@@ -488,7 +552,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>8. Retry and Error Routing</b><br><i>The evaluation routing and remediation process for correctly handling and recovering from agent failures.</i></summary>
+<summary><b>9. Retry and Error Routing</b><br><i>The evaluation routing and remediation process for correctly handling and recovering from agent failures.</i></summary>
 <br>
 
 ```mermaid
@@ -572,7 +636,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>9. Feedback Loop</b><br><i>The continuous improvement loop for feeding failure patterns and evaluations back into system components.</i></summary>
+<summary><b>10. Feedback Loop</b><br><i>The continuous improvement loop for feeding failure patterns and evaluations back into system components.</i></summary>
 <br>
 
 ```mermaid
