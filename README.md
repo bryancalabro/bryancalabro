@@ -2,6 +2,8 @@
 
 AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelines
 
+![Stats](https://github-readme-stats.vercel.app/api?username=bryancalabro&show_icons=true&hide_border=true&bg_color=0d1117&title_color=7ec8e3&text_color=e0e0ff&icon_color=2ecc71)
+
 ```
                 (                   (        )
    (     (      )\ )    (       (   )\ )  ( /(
