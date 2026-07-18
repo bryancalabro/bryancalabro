@@ -1,7 +1,6 @@
-# Engineering experiences for people who like their software smart, useful, and a little dangerous.
+# Engineering solutions that are smart, useful, and a little dangerous.
 
 AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelines
-
 
 ```
                 (                   (        )
@@ -16,12 +15,12 @@ AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelin
 
 **Recent apps**
 
-| Name                                                | Description                                                                                     |
-| --------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| [My Research](https://research.bryancalabro.com/)   | Browsable library of essays on AI, infrastructure, security, design, and emerging tech strategy |
-| [Agentic AI](https://agent.bryancalabro.com/)       | Browsable library of enterprise skill files, role-based workflows, and reusable agent playbooks |
-| [CSS Extractor](https://css.bryancalabro.com/)      | Extract colors, typography, design tokens, and raw CSS patterns from any public website         |
-| [Document Parser](https://parser.bryancalabro.com/) | Browser-based OCR that converts PDFs, scans, and images into usable text                        |
+| Name                                           | Description                                                                                                 |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| [Research](https://research.bryancalabro.com/) | Browsable library of essays on AI, infrastructure, security, design, and emerging tech strategy             |
+| [Skills](https://agent.bryancalabro.com/)      | Browsable library of enterprise skill files, role-based workflows, and reusable agent playbooks             |
+| [Extractor](https://css.bryancalabro.com/)     | Extracts colors, typography, design tokens, and raw CSS patterns from any public site into a DESIGN.md file |
+| [Parser](https://parser.bryancalabro.com/)     | Browser-based OCR that converts PDFs, scans, and images into usable text                                    |
 
 ## Architectures & Frameworks
 
