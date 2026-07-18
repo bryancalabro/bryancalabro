@@ -25,7 +25,7 @@ AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelin
 ## Architectures & Frameworks
 
 <details>
-<summary><b>1. Forward Deployed Engineering Methodology</b><br><i>The Stage 0–8 closed-loop process for turning tacit institutional knowledge into production-ready agents — principal artifacts, the three skill tiers, and root-cause correction routing.</i></summary>
+<summary><b>1. Forward Deployed Engineering Methodology</b><br><i>The Stage 0–8 closed-loop process for turning tacit institutional knowledge into production-ready agents, with the principal artifact and the three skill tiers it produces.</i></summary>
 <br>
 
 ```mermaid
@@ -56,37 +56,11 @@ flowchart TD
     S2 -.->|invoked across| SB
     S6 -.->|invoked at| IM
 
-    subgraph ROUTE["③ ROOT-CAUSE CORRECTION ROUTING"]
-        direction TB
-        DEF{Defect Observed\nContract Failure, Not Code Defect}
-        SRC[Stale or Conflicting\nSource Evidence]
-        RET[Retrieval, Routing, or\nGrounding Failure]
-        GEN[Structural or Reasoning\nFlaw Across Outputs]
-        INST[Genuine\nInstance Specificity]
-        TGT1[Operational Record\nRe-extract at Stage 1]
-        TGT2[Retrieval Pipeline\nor Grounding Constraints]
-        TGT3[The Generator\nFixes Every Output at Once]
-        TGT4[Engagement-Specific\nOverride Layer]
-        DEF -->|evidence wrong| SRC --> TGT1
-        DEF -->|not retrieved| RET --> TGT2
-        DEF -->|wrong across outputs| GEN --> TGT3
-        DEF -->|valid but local| INST --> TGT4
-    end
-
-    S7 -->|deviation or violation| DEF
-    TGT1 -.->|re-enters pipeline| S1
-    TGT2 -.->|re-enters pipeline| S3
-    TGT3 -.->|re-enters pipeline| S4
-
     classDef loopStyle fill:#1a1a2e,stroke:#4a9eff,color:#e0e0ff
     classDef tierStyle fill:#1a0a2e,stroke:#9b59b6,color:#e0e0ff
-    classDef routeStyle fill:#2e1a0a,stroke:#f39c12,color:#ffe0cc
-    classDef targetStyle fill:#0d2e1a,stroke:#2ecc71,color:#e0e0ff
 
     class S0,S1,S2,S3,S4,S5,S6,S7,S8 loopStyle
     class RT,SB,IM tierStyle
-    class DEF,SRC,RET,GEN,INST routeStyle
-    class TGT1,TGT2,TGT3,TGT4 targetStyle
 ```
 
 **Related research:** [Forward Deployed Engineering Methodologies](https://research.bryancalabro.com/papers/forward-deployed-engineering)
