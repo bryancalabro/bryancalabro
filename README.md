@@ -47,9 +47,9 @@ flowchart TD
 
     subgraph TIERS["② THREE SKILL TIERS — Never Exposed Beyond Their Layer"]
         direction TB
-        RT[Runtime Skills\nDeployed Agent · Compiled at Stage 6]
-        SB[Spec-Building Skills\nEngineer · Stages 2–4]
-        IM[Implementation Skills\nEngineer · Stage 6 · Codebase]
+        RT[Runtime Skills]
+        SB[Spec-Building Skills]
+        IM[Implementation Skills]
     end
 
     S3 -.->|compiled into| RT
