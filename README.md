@@ -15,17 +15,86 @@ AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelin
 
 **Recent apps**
 
-| Name                                           | Description                                                                                                 |
-| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| [Research](https://research.bryancalabro.com/) | Browsable library of essays on AI, infrastructure, security, design, and emerging tech strategy             |
-| [Skills](https://agent.bryancalabro.com/)      | Browsable library of enterprise skill files, role-based workflows, and reusable agent playbooks             |
-| [Extractor](https://css.bryancalabro.com/)     | Extracts colors, typography, design tokens, and raw CSS patterns from any public site into a DESIGN.md file |
-| [Parser](https://parser.bryancalabro.com/)     | Browser-based OCR that converts PDFs, scans, and images into usable text                                    |
+| Name                                             | Description                                                                                                                     |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [Research](https://research.bryancalabro.com/)   | Curated essay collection and analysis library covering AI, infrastructure, security, design, and emerging technology strategy   |
+| [Orbital](https://orbital.bryancalabro.com/)     | Editorial-style space app built around NASA's Astronomy Picture of the Day API                                                 |
+| [Fracta](https://fracta.bryancalabro.com/)       | Mobile-first WebGL fractal explorer for Mandelbrot, Julia, and related complex dynamics                                        |
+| [Pantry Price](https://pantry.bryancalabro.com/) | Approachable dashboard using official Bureau of Labor Statistics data to track the cost of everyday grocery staples            |
 
 ## Architectures & Frameworks
 
 <details>
-<summary><b>1. Three Phases Maturity Model</b><br><i>Mapping the maturity phases from human-driven orchestration to fully autonomous agentic systems.</i></summary>
+<summary><b>1. Forward Deployed Engineering Methodology</b><br><i>The Stage 0–8 closed-loop process for turning tacit institutional knowledge into production-ready agents — principal artifacts, the three skill tiers, and root-cause correction routing.</i></summary>
+<br>
+
+```mermaid
+flowchart TD
+    subgraph LOOP["① STAGES 0–8 — Closed-Loop Methodology · Output Per Stage"]
+        direction TB
+        S0[Stage 0 — Scope\nCapability Boundaries\n→ Capability Map]
+        S1[Stage 1 — Extract\nStructured Interviews\n→ Verbatim Transcripts]
+        S2[Stage 2 — Synthesize\nClean · Flag · Resolve\n→ Resolved Rule Sets]
+        S3[Stage 3 — Encode\nCanonical Skill Specs\n→ Atomic Capability Specs]
+        S4[Stage 4 — Living Spec\nFour Layers, One Doc\n→ Living Agent Spec]
+        S5[Stage 5 — Validate\nConfirm · Design Evals\n→ Approved Eval Suite]
+        S6[Stage 6 — Build\nCompile · Integrate\n→ Compiled Runtime Skills]
+        S7[Stage 7 — Deploy\nObserve · Trace\n→ Telemetry + Deviation Log]
+        S8[Stage 8 — Iterate\nNew Interviews · Redeploy\n→ Updated Specs]
+        S0 --> S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7 --> S8
+        S8 -.->|perpetual loop| S0
+    end
+
+    subgraph TIERS["② THREE SKILL TIERS — Never Exposed Beyond Their Layer"]
+        direction TB
+        RT[Runtime Skills\nDeployed Agent · Compiled at Stage 6]
+        SB[Spec-Building Skills\nEngineer · Stages 2–4]
+        IM[Implementation Skills\nEngineer · Stage 6 · Codebase]
+    end
+
+    S3 -.->|compiled into| RT
+    S2 -.->|invoked across| SB
+    S6 -.->|invoked at| IM
+
+    subgraph ROUTE["③ ROOT-CAUSE CORRECTION ROUTING"]
+        direction TB
+        DEF{Defect Observed\nContract Failure, Not Code Defect}
+        SRC[Stale or Conflicting\nSource Evidence]
+        RET[Retrieval, Routing, or\nGrounding Failure]
+        GEN[Structural or Reasoning\nFlaw Across Outputs]
+        INST[Genuine\nInstance Specificity]
+        TGT1[Operational Record\nRe-extract at Stage 1]
+        TGT2[Retrieval Pipeline\nor Grounding Constraints]
+        TGT3[The Generator\nFixes Every Output at Once]
+        TGT4[Engagement-Specific\nOverride Layer]
+        DEF -->|evidence wrong| SRC --> TGT1
+        DEF -->|not retrieved| RET --> TGT2
+        DEF -->|wrong across outputs| GEN --> TGT3
+        DEF -->|valid but local| INST --> TGT4
+    end
+
+    S7 -->|deviation or violation| DEF
+    TGT1 -.->|re-enters pipeline| S1
+    TGT2 -.->|re-enters pipeline| S3
+    TGT3 -.->|re-enters pipeline| S4
+
+    classDef loopStyle fill:#1a1a2e,stroke:#4a9eff,color:#e0e0ff
+    classDef tierStyle fill:#1a0a2e,stroke:#9b59b6,color:#e0e0ff
+    classDef routeStyle fill:#2e1a0a,stroke:#f39c12,color:#ffe0cc
+    classDef targetStyle fill:#0d2e1a,stroke:#2ecc71,color:#e0e0ff
+
+    class S0,S1,S2,S3,S4,S5,S6,S7,S8 loopStyle
+    class RT,SB,IM tierStyle
+    class DEF,SRC,RET,GEN,INST routeStyle
+    class TGT1,TGT2,TGT3,TGT4 targetStyle
+```
+
+**Related research:** [Forward Deployed Engineering Methodologies](https://research.bryancalabro.com/papers/forward-deployed-engineering)
+
+</details>
+
+<details>
+<summary><b>2. Three Phases Maturity Model</b><br><i>Mapping the maturity phases from human-driven orchestration to fully autonomous agentic systems.</i></summary>
 <br>
 
 ```mermaid
@@ -82,10 +151,12 @@ flowchart LR
     class POS nowStyle
 ```
 
+**Related research:** [Earned Autonomy](https://research.bryancalabro.com/papers/earned-autonomy)
+
 </details>
 
 <details>
-<summary><b>2. SDLC Inversion</b><br><i>The paradigm shift from traditional document-driven SDLC to AI-augmented system-driven SDLC.</i></summary>
+<summary><b>3. SDLC Inversion</b><br><i>The paradigm shift from traditional document-driven SDLC to AI-augmented system-driven SDLC.</i></summary>
 <br>
 
 ```mermaid
@@ -121,10 +192,12 @@ flowchart LR
     class A1,A2,A3,A4,A5,A6 afterStyle
 ```
 
+**Related research:** [The Inversion of the SDLC](https://research.bryancalabro.com/papers/inversion-sdlc-adlc); [Human-Agent Centered Design](https://research.bryancalabro.com/papers/human-agent-centered-design-in-practice)
+
 </details>
 
 <details>
-<summary><b>3. Stack Layer Diagram</b><br><i>The foundational architecture stack mapping models, skills, agents, orchestration, and surface delivery.</i></summary>
+<summary><b>4. Stack Layer Diagram</b><br><i>The foundational architecture stack mapping models, skills, agents, orchestration, and surface delivery.</i></summary>
 <br>
 
 ```mermaid
@@ -184,10 +257,12 @@ flowchart TD
     class LLM,VEC,RULES,APIS l5Style
 ```
 
+**Related research:** [The Nervous System of Agentic AI](https://research.bryancalabro.com/papers/agentic-ai-sensing); [Forward Deployed Engineering Methodologies](https://research.bryancalabro.com/papers/forward-deployed-engineering)
+
 </details>
 
 <details>
-<summary><b>4. Agent System Topology</b><br><i>The runtime topology of an agentic system — how triggers, orchestration, agents, skills, and governance fit together.</i></summary>
+<summary><b>5. Agent System Topology</b><br><i>The runtime topology of an agentic system — how triggers, orchestration, agents, skills, and governance fit together.</i></summary>
 <br>
 
 ```mermaid
@@ -248,10 +323,12 @@ flowchart TD
     class MEM,GRD,AUD governStyle
 ```
 
+**Related research:** [Greenfield Versus Brownfield Agentic AI Integration](https://research.bryancalabro.com/papers/greenfield-vs-brownfield-agentic-ai-integration); [Earned Autonomy](https://research.bryancalabro.com/papers/earned-autonomy)
+
 </details>
 
 <details>
-<summary><b>5. Ticket Lifecycle & Human Revision Loop</b><br><i>The full round-trip of a ticket — from creation in an external tracker, through the AI pipeline, back to the tracker for human review, and re-entry on edit request.</i></summary>
+<summary><b>6. Ticket Lifecycle & Human Revision Loop</b><br><i>The full round-trip of a ticket — from creation in an external tracker, through the AI pipeline, back to the tracker for human review, and re-entry on edit request.</i></summary>
 <br>
 
 ```mermaid
@@ -322,10 +399,12 @@ flowchart TD
     class REJECT rejectStyle
 ```
 
+**Related research:** [Human-Agent Centered Design](https://research.bryancalabro.com/papers/human-agent-centered-design-in-practice); [The Inversion of the SDLC](https://research.bryancalabro.com/papers/inversion-sdlc-adlc)
+
 </details>
 
 <details>
-<summary><b>6. AI Delivery Pipeline</b><br><i>The end-to-end workflow of how tickets and tasks move through the delivery pipeline.</i></summary>
+<summary><b>7. AI Delivery Pipeline</b><br><i>The end-to-end workflow of how tickets and tasks move through the delivery pipeline.</i></summary>
 <br>
 
 ```mermaid
@@ -411,10 +490,12 @@ flowchart TD
     class HC1,HC2,HC3 humanStyle
 ```
 
+**Related research:** [The Inversion of the SDLC](https://research.bryancalabro.com/papers/inversion-sdlc-adlc); [Forward Deployed Engineering Methodologies](https://research.bryancalabro.com/papers/forward-deployed-engineering)
+
 </details>
 
 <details>
-<summary><b>7. Context Assembly Flow</b><br><i>The process of extracting, indexing, and assembling unstructured tickets into agent-ready context packs.</i></summary>
+<summary><b>8. Context Assembly Flow</b><br><i>The process of extracting, indexing, and assembling unstructured tickets into agent-ready context packs.</i></summary>
 <br>
 
 ```mermaid
@@ -478,10 +559,12 @@ flowchart TD
     class READY readyStyle
 ```
 
+**Related research:** [Forward Deployed Engineering Methodologies](https://research.bryancalabro.com/papers/forward-deployed-engineering); [The Inversion of the SDLC](https://research.bryancalabro.com/papers/inversion-sdlc-adlc)
+
 </details>
 
 <details>
-<summary><b>8. Agent Handoff Flow</b><br><i>The internal execution loop outlining how a single agent reasons, packages, and routes tasks.</i></summary>
+<summary><b>9. Agent Handoff Flow</b><br><i>The internal execution loop outlining how a single agent reasons, packages, and routes tasks.</i></summary>
 <br>
 
 ```mermaid
@@ -549,10 +632,12 @@ flowchart TD
     class NEXT loadStyle
 ```
 
+**Related research:** [Human-Agent Centered Design](https://research.bryancalabro.com/papers/human-agent-centered-design-in-practice); [The Inversion of the SDLC](https://research.bryancalabro.com/papers/inversion-sdlc-adlc)
+
 </details>
 
 <details>
-<summary><b>9. Retry and Error Routing</b><br><i>The evaluation routing and remediation process for correctly handling and recovering from agent failures.</i></summary>
+<summary><b>10. Retry and Error Routing</b><br><i>The evaluation routing and remediation process for correctly handling and recovering from agent failures.</i></summary>
 <br>
 
 ```mermaid
@@ -633,10 +718,12 @@ flowchart TD
     class PASS passStyle
 ```
 
+**Related research:** [Earned Autonomy](https://research.bryancalabro.com/papers/earned-autonomy); [The Inversion of the SDLC](https://research.bryancalabro.com/papers/inversion-sdlc-adlc)
+
 </details>
 
 <details>
-<summary><b>10. Feedback Loop</b><br><i>The continuous improvement loop for feeding failure patterns and evaluations back into system components.</i></summary>
+<summary><b>11. Feedback Loop</b><br><i>The continuous improvement loop for feeding failure patterns and evaluations back into system components.</i></summary>
 <br>
 
 ```mermaid
@@ -719,5 +806,7 @@ flowchart TD
     class IDX,PROMPTS,SKILLS,EVALS closeStyle
     class HC humanStyle
 ```
+
+**Related research:** [Earned Autonomy](https://research.bryancalabro.com/papers/earned-autonomy); [Forward Deployed Engineering Methodologies](https://research.bryancalabro.com/papers/forward-deployed-engineering)
 
 </details>
