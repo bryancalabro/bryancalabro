@@ -20,7 +20,7 @@ AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelin
 | [Research](https://research.bryancalabro.com/)   | Curated essay collection and analysis library covering AI, infrastructure, security, design, and emerging technology strategy |
 | [Orbital](https://orbital.bryancalabro.com/)     | Editorial-style space app built around NASA's Astronomy Picture of the Day API                                                |
 | [Fracta](https://fracta.bryancalabro.com/)       | Mobile-first WebGL fractal explorer for Mandelbrot, Julia, and related complex dynamics                                       |
-| [Pantry Price](https://pantry.bryancalabro.com/) | Approachable dashboard using official Bureau of Labor Statistics data to track the cost of everyday grocery staples           |
+| [PantryPrice.](https://pantry.bryancalabro.com/) | Approachable dashboard using official Bureau of Labor Statistics data to track the cost of everyday grocery staples           |
 
 ## Architectures & Frameworks
 
