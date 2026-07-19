@@ -32,15 +32,15 @@ AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelin
 flowchart TD
     subgraph LOOP["① STAGES 0–8 — Closed-Loop Methodology · Output Per Stage"]
         direction TB
-        S0[Stage 0 — Scope\nCapability Boundaries\n→ Capability Map]
-        S1[Stage 1 — Extract\nStructured Interviews\n→ Verbatim Transcripts]
-        S2[Stage 2 — Synthesize\nClean · Flag · Resolve\n→ Resolved Rule Sets]
-        S3[Stage 3 — Encode\nCanonical Skill Specs\n→ Atomic Capability Specs]
-        S4[Stage 4 — Living Spec\nFour Layers, One Doc\n→ Living Agent Spec]
-        S5[Stage 5 — Validate\nConfirm · Design Evals\n→ Approved Eval Suite]
-        S6[Stage 6 — Build\nCompile · Integrate\n→ Compiled Runtime Skills]
-        S7[Stage 7 — Deploy\nObserve · Trace\n→ Telemetry + Deviation Log]
-        S8[Stage 8 — Iterate\nNew Interviews · Redeploy\n→ Updated Specs]
+        S0["Stage 0 — Scope<br/>Capability Boundaries<br/>→ Capability Map"]
+        S1["Stage 1 — Extract<br/>Structured Interviews<br/>→ Verbatim Transcripts"]
+        S2["Stage 2 — Synthesize<br/>Clean · Flag · Resolve<br/>→ Resolved Rule Sets"]
+        S3["Stage 3 — Encode<br/>Canonical Skill Specs<br/>→ Atomic Capability Specs"]
+        S4["Stage 4 — Living Spec<br/>Four Layers, One Doc<br/>→ Living Agent Spec"]
+        S5["Stage 5 — Validate<br/>Confirm · Design Evals<br/>→ Approved Eval Suite"]
+        S6["Stage 6 — Build<br/>Compile · Integrate<br/>→ Compiled Runtime Skills"]
+        S7["Stage 7 — Deploy<br/>Observe · Trace<br/>→ Telemetry + Deviation Log"]
+        S8["Stage 8 — Iterate<br/>New Interviews · Redeploy<br/>→ Updated Specs"]
         S0 --> S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7 --> S8
         S8 -.->|perpetual loop| S0
     end
@@ -75,11 +75,11 @@ flowchart TD
 flowchart LR
     subgraph P1["PHASE 1 — Human-Driven"]
         direction TB
-        P1A[Human as Orchestrator\nPrompts · Directs · Decides]
-        P1B[LLM as Tool\nOn-Demand · Single Task · No Memory]
-        P1C[Output Quality\nDepends on Prompt Skill]
-        P1D[Speed Gain\nReal but Inconsistent]
-        P1E[Bottleneck\nHuman Availability]
+        P1A["Human as Orchestrator<br/>Prompts · Directs · Decides"]
+        P1B["LLM as Tool<br/>On-Demand · Single Task · No Memory"]
+        P1C["Output Quality<br/>Depends on Prompt Skill"]
+        P1D["Speed Gain<br/>Real but Inconsistent"]
+        P1E["Bottleneck<br/>Human Availability"]
         P1A --> P1B --> P1C --> P1D --> P1E
     end
 
@@ -87,11 +87,11 @@ flowchart LR
 
     subgraph P2["PHASE 2 — Agent-Assisted"]
         direction TB
-        P2A[Agent as Executor\nHandles Task Sequences]
-        P2B[Human at Checkpoints\nReview · Approve · Intervene]
-        P2C[Skill Files Loaded\nSpecialized Role Behavior]
-        P2D[Output Quality\nShaped by Evals + Human Review]
-        P2E[Bottleneck\nHandoff Clarity · Context Quality]
+        P2A["Agent as Executor<br/>Handles Task Sequences"]
+        P2B["Human at Checkpoints<br/>Review · Approve · Intervene"]
+        P2C["Skill Files Loaded<br/>Specialized Role Behavior"]
+        P2D["Output Quality<br/>Shaped by Evals + Human Review"]
+        P2E["Bottleneck<br/>Handoff Clarity · Context Quality"]
         P2A --> P2B --> P2C --> P2D --> P2E
     end
 
@@ -99,16 +99,16 @@ flowchart LR
 
     subgraph P3["PHASE 3 — Fully Autonomous"]
         direction TB
-        P3A[Agent as Orchestrator\nPlans · Delegates · Self-Corrects]
-        P3B[Human at Command Layer\nMonitor · Set Goals · Override]
-        P3C[Feedback Loops Active\nSystem Improves Continuously]
-        P3D[Output Quality\nSystematic · Validated · Consistent]
-        P3E[Bottleneck\nGoal Clarity · Trust Calibration]
+        P3A["Agent as Orchestrator<br/>Plans · Delegates · Self-Corrects"]
+        P3B["Human at Command Layer<br/>Monitor · Set Goals · Override"]
+        P3C["Feedback Loops Active<br/>System Improves Continuously"]
+        P3D["Output Quality<br/>Systematic · Validated · Consistent"]
+        P3E["Bottleneck<br/>Goal Clarity · Trust Calibration"]
         P3A --> P3B --> P3C --> P3D --> P3E
     end
 
     subgraph NOW["WHERE MOST TEAMS ARE TODAY"]
-        POS[Somewhere Between\nPhase 1 and Phase 2]
+        POS["Somewhere Between<br/>Phase 1 and Phase 2"]
     end
 
     P1 -.->|most teams| NOW
@@ -137,12 +137,12 @@ flowchart LR
 flowchart LR
     subgraph BEFORE["TRADITIONAL SDLC — Documents Drive Development"]
         direction TB
-        B1[Requirements Written\nBy Humans · Upfront · Manual]
-        B2[Architecture Designed\nFrom Specs · Whiteboard · Docs]
-        B3[Development Begins\nHumans Execute · Slow · Linear]
-        B4[Testing & QA\nManual · Late · Reactive]
-        B5[Documentation\nWritten After · Incomplete · Stale]
-        B6[Delivery\nLate · Over Budget · Partial]
+        B1["Requirements Written<br/>By Humans · Upfront · Manual"]
+        B2["Architecture Designed<br/>From Specs · Whiteboard · Docs"]
+        B3["Development Begins<br/>Humans Execute · Slow · Linear"]
+        B4["Testing & QA<br/>Manual · Late · Reactive"]
+        B5["Documentation<br/>Written After · Incomplete · Stale"]
+        B6["Delivery<br/>Late · Over Budget · Partial"]
         B1 --> B2 --> B3 --> B4 --> B5 --> B6
     end
 
@@ -150,12 +150,12 @@ flowchart LR
 
     subgraph AFTER["AI-AUGMENTED SDLC — Systems Drive Documentation"]
         direction TB
-        A1[Prototype First\nAgents Scaffold · Fast · Iterative]
-        A2[Requirements Derived\nFrom Working System · Auto-Generated]
-        A3[Architecture Emerges\nAgents Design · ADRs · Diagrams]
-        A4[Testing Continuous\nAgents Generate · Automated · Proactive]
-        A5[Docs as Output\nLive · Accurate · Agent-Maintained]
-        A6[Delivery\nCompressed · Iterative · Validated]
+        A1["Prototype First<br/>Agents Scaffold · Fast · Iterative"]
+        A2["Requirements Derived<br/>From Working System · Auto-Generated"]
+        A3["Architecture Emerges<br/>Agents Design · ADRs · Diagrams"]
+        A4["Testing Continuous<br/>Agents Generate · Automated · Proactive"]
+        A5["Docs as Output<br/>Live · Accurate · Agent-Maintained"]
+        A6["Delivery<br/>Compressed · Iterative · Validated"]
         A1 --> A2 --> A3 --> A4 --> A5 --> A6
     end
 
@@ -177,40 +177,40 @@ flowchart LR
 ```mermaid
 flowchart TD
     subgraph L1["⑤ DELIVERY SURFACE — Where It Becomes Real"]
-        API[REST API\nExternal Consumers]
-        DASH[Internal Dashboard\nOps · Review · Command]
-        BATCH[Scheduled Jobs\nBatch Export · CI Triggers]
+        API["REST API<br/>External Consumers"]
+        DASH["Internal Dashboard<br/>Ops · Review · Command"]
+        BATCH["Scheduled Jobs<br/>Batch Export · CI Triggers"]
     end
 
     subgraph L2["④ ORCHESTRATION — The Brain"]
-        ROUTER[Task Router\nWhich Agent · What Order · What Context]
-        RETRY[Retry & Error Policy\nFailure Handling · Fallback Routes]
-        HANDOFF[Agent Handoff\nOutput Envelope · State Transfer]
+        ROUTER["Task Router<br/>Which Agent · What Order · What Context"]
+        RETRY["Retry & Error Policy<br/>Failure Handling · Fallback Routes"]
+        HANDOFF["Agent Handoff<br/>Output Envelope · State Transfer"]
         ROUTER --> HANDOFF
         ROUTER --> RETRY
         RETRY --> ROUTER
     end
 
     subgraph L3["③ AGENTIC LAYER — Where Planning Happens"]
-        PLANNER[Planner\nDecompose · Sequence · Decide]
-        EXECUTOR[Executor\nCall Tools · Run Skills · Produce Output]
-        VALIDATOR[Validator\nCheck Output · Score · Accept or Retry]
+        PLANNER["Planner<br/>Decompose · Sequence · Decide"]
+        EXECUTOR["Executor<br/>Call Tools · Run Skills · Produce Output"]
+        VALIDATOR["Validator<br/>Check Output · Score · Accept or Retry"]
         PLANNER --> EXECUTOR --> VALIDATOR
         VALIDATOR -->|retry| PLANNER
     end
 
     subgraph L4["② SKILL FILES — How Agents Behave"]
-        REQ[Requirements Agent\nreqs-agent.md]
-        ARCH[Architecture Agent\narch-agent.md]
-        CODE[Code Gen Agent\ncodegen-agent.md]
-        QA[QA Agent\nqa-agent.md]
+        REQ["Requirements Agent<br/>reqs-agent.md"]
+        ARCH["Architecture Agent<br/>arch-agent.md"]
+        CODE["Code Gen Agent<br/>codegen-agent.md"]
+        QA["QA Agent<br/>qa-agent.md"]
     end
 
     subgraph L5["① FOUNDATION — Models, Retrieval & Tools"]
-        LLM[Foundation Models\nReasoning · Generation · Evaluation]
-        VEC[Vector Index\nRAG · Semantic Search]
-        RULES[Rule Engine\nDeterministic Logic · Validation]
-        APIS[External APIs\nData Sources · Services]
+        LLM["Foundation Models<br/>Reasoning · Generation · Evaluation"]
+        VEC["Vector Index<br/>RAG · Semantic Search"]
+        RULES["Rule Engine<br/>Deterministic Logic · Validation"]
+        APIS["External APIs<br/>Data Sources · Services"]
     end
 
     L5 -->|context + reasoning| L4
@@ -244,25 +244,25 @@ flowchart TD
     subgraph TRIGGER["① TRIGGER — External Events"]
         EV1([External Event])
         EV2([External Event])
-        WH[Webhook\nPush-based Trigger]
-        WK[Worker\nPoll-based Trigger]
+        WH["Webhook<br/>Push-based Trigger"]
+        WK["Worker<br/>Poll-based Trigger"]
         EV1 --> WH
         EV2 --> WK
     end
 
     subgraph COORD["② COORDINATE — The Brain"]
-        ORC[Orchestrator\nRoutes · Coordinates · Reviews]
+        ORC["Orchestrator<br/>Routes · Coordinates · Reviews"]
         WH --> ORC
         WK --> ORC
     end
 
     subgraph AGENTS["③ AGENTS — Domain Specialists"]
-        AGa[Agent A\nDomain Specialist]
-        AGb[Agent B\nDomain Specialist]
-        AGc[Agent C\nDomain Specialist]
-        SKa[Skills\nSkill 1 · Skill 2 · Skill 3]
-        SUB[Sub-Agent\nComplex Subtask]
-        SKb[Skills\nSkill 1 · Skill 2]
+        AGa["Agent A<br/>Domain Specialist"]
+        AGb["Agent B<br/>Domain Specialist"]
+        AGc["Agent C<br/>Domain Specialist"]
+        SKa["Skills<br/>Skill 1 · Skill 2 · Skill 3"]
+        SUB["Sub-Agent<br/>Complex Subtask"]
+        SKb["Skills<br/>Skill 1 · Skill 2"]
         ORC --> AGa
         ORC --> AGb
         ORC --> AGc
@@ -272,9 +272,9 @@ flowchart TD
     end
 
     subgraph GOVERN["④ GOVERN — State, Safety, Audit"]
-        MEM[(Memory\nShort + Long-term State)]
-        GRD[[Guardrails\nPre-action Enforcement]]
-        AUD{{Audit Log\nEvery Decision + Tool Call}}
+        MEM[("Memory<br/>Short + Long-term State")]
+        GRD[["Guardrails<br/>Pre-action Enforcement"]]
+        AUD{{"Audit Log<br/>Every Decision + Tool Call"}}
         ORC -.-> GRD
         AGa -.-> MEM
         AGb -.-> MEM
@@ -308,45 +308,45 @@ flowchart TD
 ```mermaid
 flowchart TD
     subgraph TRACKER["① TRACKER — Ticket Created"]
-        TK[Ticket Opened\nJira · Linear · GitHub Issues]
-        TF[Fields\nTitle · Description · Acceptance Criteria · Labels · Epic]
+        TK["Ticket Opened<br/>Jira · Linear · GitHub Issues"]
+        TF["Fields<br/>Title · Description · Acceptance Criteria · Labels · Epic"]
         TK --> TF
     end
 
     subgraph TRIGGER["② TRIGGER — Pipeline Activated"]
-        WH[Webhook / Scheduled Poll\nDetects New or Updated Ticket]
-        NRM[Normalize & Ingest\nExtract Metadata · Link Artifacts]
+        WH["Webhook / Scheduled Poll<br/>Detects New or Updated Ticket"]
+        NRM["Normalize & Ingest<br/>Extract Metadata · Link Artifacts"]
         TF --> WH --> NRM
     end
 
     subgraph PIPELINE["③ AI PIPELINE — See Diagram 5 for Full Detail"]
-        CTX[Context Assembly\nRetrieve · Pack · Validate]
-        ORCH[Orchestrate & Execute\nRequirements · Architecture · Code Gen · QA]
-        ENV[Output Envelope\nPR · Updated Ticket Body · ADR · Artifacts]
+        CTX["Context Assembly<br/>Retrieve · Pack · Validate"]
+        ORCH["Orchestrate & Execute<br/>Requirements · Architecture · Code Gen · QA"]
+        ENV["Output Envelope<br/>PR · Updated Ticket Body · ADR · Artifacts"]
         NRM --> CTX --> ORCH --> ENV
     end
 
     subgraph PUSHBACK["④ PUSH BACK — Update the Tracker"]
-        UPD[Agent Writes Back\nUpdated Description · Linked PR · Comment with Artifacts]
-        STAT[Status Updated\nIn Review · Awaiting Approval]
+        UPD["Agent Writes Back<br/>Updated Description · Linked PR · Comment with Artifacts"]
+        STAT["Status Updated<br/>In Review · Awaiting Approval"]
         ENV --> UPD --> STAT
     end
 
     subgraph REVIEW["⑤ HUMAN REVIEW — Review in Tracker"]
-        HR{Human Reviews Ticket\nApprove · Request Edits · Reject}
+        HR{"Human Reviews Ticket<br/>Approve · Request Edits · Reject"}
         STAT --> HR
     end
 
     subgraph EDITLOOP["⑥ EDIT REQUEST — Re-enters the Pipeline"]
-        EC[Revision Comment Added\nHuman Describes Requested Changes]
-        WH2[Webhook Fires Again\nRevision Context Appended to Ticket]
-        RELOAD[Pipeline Re-runs\nPrior Output + Edit Instructions Loaded as Context]
+        EC["Revision Comment Added<br/>Human Describes Requested Changes"]
+        WH2["Webhook Fires Again<br/>Revision Context Appended to Ticket"]
+        RELOAD["Pipeline Re-runs<br/>Prior Output + Edit Instructions Loaded as Context"]
         EC --> WH2 --> RELOAD
     end
 
     subgraph RESOLVE["⑦ RESOLVE — Done"]
-        APPROVE[Approved\nTicket Closed · PR Merged]
-        REJECT[Rejected\nTicket Moved to Backlog · Archived]
+        APPROVE["Approved<br/>Ticket Closed · PR Merged"]
+        REJECT["Rejected<br/>Ticket Moved to Backlog · Archived"]
         HR -->|approved| APPROVE
         HR -->|rejected| REJECT
     end
@@ -384,29 +384,29 @@ flowchart TD
 ```mermaid
 flowchart TD
     subgraph INTAKE["① INTAKE — Discover & Scope"]
-        JT[Ticket / Epic\nUser Story · Acceptance Criteria]
-        LD[Legacy Artifacts\nDocs · Specs · Business Rules]
+        JT["Ticket / Epic<br/>User Story · Acceptance Criteria"]
+        LD["Legacy Artifacts<br/>Docs · Specs · Business Rules"]
         JT -->|linked artifacts| LD
     end
 
     subgraph INGEST["② INGEST — Normalize"]
-        OCR[Document Parser\nExtract → Markdown]
-        IDX[Index & Tag\nModule · Process · Entity]
+        OCR["Document Parser<br/>Extract → Markdown"]
+        IDX["Index & Tag<br/>Module · Process · Entity"]
         LD --> OCR --> IDX
         JT -->|ticket context| IDX
     end
 
     subgraph CONTEXT["③ CONTEXT — Retrieve & Pack"]
-        RAG[RAG Retrieval\nQuery by Ticket / Component]
-        CTX[Context Pack\nRequirements · Constraints · Schema]
+        RAG["RAG Retrieval<br/>Query by Ticket / Component"]
+        CTX["Context Pack<br/>Requirements · Constraints · Schema"]
         IDX --> RAG --> CTX
     end
 
     subgraph ORCHESTRATE["④ ORCHESTRATE — Plan"]
-        PLANNER[Requirements Agent\nDecompose · Map · Prioritize]
-        HC1{Human Checkpoint\nApprove Requirements}
-        ARCH[Architecture Agent\nDesign · ADRs · Diagrams]
-        HC2{Human Checkpoint\nApprove Architecture}
+        PLANNER["Requirements Agent<br/>Decompose · Map · Prioritize"]
+        HC1{"Human Checkpoint<br/>Approve Requirements"}
+        ARCH["Architecture Agent<br/>Design · ADRs · Diagrams"]
+        HC2{"Human Checkpoint<br/>Approve Architecture"}
         CTX --> PLANNER --> HC1
         HC1 -->|approved| ARCH
         HC1 -->|revise| PLANNER
@@ -415,29 +415,29 @@ flowchart TD
     end
 
     subgraph EXECUTE["⑤ EXECUTE — Build"]
-        CODEGEN[Code Gen Agent\nScaffold · Implement · Refactor]
-        TESTGEN[Test Gen Agent\nUnit · Integration · Contract]
+        CODEGEN["Code Gen Agent<br/>Scaffold · Implement · Refactor"]
+        TESTGEN["Test Gen Agent<br/>Unit · Integration · Contract"]
         HC2 -->|approved| CODEGEN
         CODEGEN --> TESTGEN
     end
 
     subgraph VALIDATE["⑥ VALIDATE — Review"]
-        EVAL[Eval Layer\nLLM-as-Judge · Rule Checks]
-        QA[QA Agent\nCoverage · Regression · Accessibility]
-        HC3{Human Checkpoint\nApprove Release}
+        EVAL["Eval Layer<br/>LLM-as-Judge · Rule Checks"]
+        QA["QA Agent<br/>Coverage · Regression · Accessibility"]
+        HC3{"Human Checkpoint<br/>Approve Release"}
         TESTGEN --> EVAL --> QA --> HC3
         HC3 -->|revise| CODEGEN
     end
 
     subgraph DELIVER["⑦ DELIVER — Ship"]
-        PR[Pull Request\nCode · Tests · Docs]
-        DEPLOY[CI/CD Pipeline\nBuild · Deploy · Release]
+        PR["Pull Request<br/>Code · Tests · Docs"]
+        DEPLOY["CI/CD Pipeline<br/>Build · Deploy · Release"]
         HC3 -->|approved| PR --> DEPLOY
     end
 
     subgraph OBSERVE["⑧ OBSERVE — Learn"]
-        MON[Monitor\nDrift · Failures · Edge Cases]
-        IMPROVE[Improve\nFeed back → Prompts · Index · Evals]
+        MON["Monitor<br/>Drift · Failures · Edge Cases"]
+        IMPROVE["Improve<br/>Feed back → Prompts · Index · Evals"]
         DEPLOY --> MON --> IMPROVE
         IMPROVE -->|refine retrieval| RAG
         IMPROVE -->|update scope| JT
@@ -476,19 +476,19 @@ flowchart TD
 flowchart TD
     subgraph TICKET["① TICKET — Extract Metadata"]
         TK[Incoming Ticket]
-        TM[Metadata Extraction\nEpic · Component · Labels]
-        AC[Acceptance Criteria\nConstraints · Definition of Done]
-        LK[Linked Artifacts\nDocs · Parent Epics · Dependencies]
+        TM["Metadata Extraction<br/>Epic · Component · Labels"]
+        AC["Acceptance Criteria<br/>Constraints · Definition of Done"]
+        LK["Linked Artifacts<br/>Docs · Parent Epics · Dependencies"]
         TK --> TM
         TK --> AC
         TK --> LK
     end
 
     subgraph INDEX["② INDEX — Query the Document Store"]
-        QRY[Index Query\nMatch by Component · Entity · Process]
+        QRY["Index Query<br/>Match by Component · Entity · Process"]
         HIT{Documents Found?}
-        MATCH[Matched Artifacts\nSpecs · Business Rules · Data Models]
-        FLAG[⚠ Scope Gap Flagged\nNo Match → Undiscovered Scope]
+        MATCH["Matched Artifacts<br/>Specs · Business Rules · Data Models"]
+        FLAG["⚠ Scope Gap Flagged<br/>No Match → Undiscovered Scope"]
         LK --> QRY
         TM --> QRY
         QRY --> HIT
@@ -498,17 +498,17 @@ flowchart TD
     end
 
     subgraph ASSEMBLE["③ ASSEMBLE — Pack the Context"]
-        RANK[Rank & Filter\nRelevance · Recency · Token Budget]
-        CHUNK[Chunk & Structure\nRequirements · Constraints · Schema]
-        CTX[Context Pack\nReady for Agent Consumption]
+        RANK["Rank & Filter<br/>Relevance · Recency · Token Budget"]
+        CHUNK["Chunk & Structure<br/>Requirements · Constraints · Schema"]
+        CTX["Context Pack<br/>Ready for Agent Consumption"]
         MATCH --> RANK --> CHUNK --> CTX
         AC --> CHUNK
     end
 
     subgraph GATE["④ GATE — Validate Before Handoff"]
         CHK{Context Complete?}
-        HC{Human Checkpoint\nReview Context Pack}
-        READY[Handoff to\nRequirements Agent]
+        HC{"Human Checkpoint<br/>Review Context Pack"}
+        READY["Handoff to<br/>Requirements Agent"]
         CHK -->|incomplete| RANK
         CTX --> CHK
         CHK -->|complete| HC
@@ -544,26 +544,26 @@ flowchart TD
 ```mermaid
 flowchart TD
     subgraph LOAD["① LOAD — Agent Initialization"]
-        CTX[Incoming Context Pack\nRequirements · Constraints · Schema]
-        SF[Skill File\nRole Playbook · Workflow · Output Criteria]
-        INIT[Agent Initialized\nRole · Tools · Memory · Goals]
+        CTX["Incoming Context Pack<br/>Requirements · Constraints · Schema"]
+        SF["Skill File<br/>Role Playbook · Workflow · Output Criteria"]
+        INIT["Agent Initialized<br/>Role · Tools · Memory · Goals"]
         CTX --> INIT
         SF -->|loaded as system context| INIT
     end
 
     subgraph REASON["② REASON — LLM Layer"]
-        PLAN[Planner\nDecompose Task · Sequence Steps]
-        TOOLS[Tool Calls\nVector Index · APIs · Rule Engine]
-        OUT[Raw Output\nDraft · Code · Decision · Diagram]
+        PLAN["Planner<br/>Decompose Task · Sequence Steps"]
+        TOOLS["Tool Calls<br/>Vector Index · APIs · Rule Engine"]
+        OUT["Raw Output<br/>Draft · Code · Decision · Diagram"]
         INIT --> PLAN --> TOOLS --> OUT
         TOOLS -->|iterate| PLAN
     end
 
     subgraph PACKAGE["③ PACKAGE — Output Envelope"]
-        RES[Result\nPrimary Deliverable]
-        META[Metadata\nAgent Role · Skill File Version · Timestamp]
-        CONF{Confidence\nThreshold Met?}
-        ENV[Output Envelope\nResult · Metadata · Confidence · Handoff Notes]
+        RES["Result<br/>Primary Deliverable"]
+        META["Metadata<br/>Agent Role · Skill File Version · Timestamp"]
+        CONF{"Confidence<br/>Threshold Met?"}
+        ENV["Output Envelope<br/>Result · Metadata · Confidence · Handoff Notes"]
         OUT --> RES
         OUT --> META
         OUT --> CONF
@@ -575,10 +575,10 @@ flowchart TD
 
     subgraph ROUTE["④ ROUTE — Handoff Decision"]
         RTR{Next Step?}
-        HC{Human Checkpoint\nReview Required?}
-        NEXT[Next Agent\nLoads Envelope as Context]
-        HUMAN[Human Review\nApprove · Revise · Escalate]
-        DONE[Task Complete\nDeliver to Pipeline]
+        HC{"Human Checkpoint<br/>Review Required?"}
+        NEXT["Next Agent<br/>Loads Envelope as Context"]
+        HUMAN["Human Review<br/>Approve · Revise · Escalate"]
+        DONE["Task Complete<br/>Deliver to Pipeline"]
         ENV --> RTR
         RTR -->|agent handoff| HC
         HC -->|no| NEXT
@@ -617,24 +617,24 @@ flowchart TD
 ```mermaid
 flowchart TD
     subgraph ENTRY["① ENTRY — Agent Output Received"]
-        OUT[Agent Output\nResult · Metadata · Confidence]
-        EVAL{Automated Eval\nRule Checks · LLM-as-Judge}
+        OUT["Agent Output<br/>Result · Metadata · Confidence"]
+        EVAL{"Automated Eval<br/>Rule Checks · LLM-as-Judge"}
         OUT --> EVAL
     end
 
     subgraph TRIAGE["② TRIAGE — Classify the Failure"]
-        PASS[Output Accepted\nThreshold Met]
+        PASS["Output Accepted<br/>Threshold Met"]
         FAIL{Failure Type?}
         EVAL -->|pass| PASS
         EVAL -->|fail| FAIL
     end
 
     subgraph ROUTES["③ ROUTE — Send to Correct Handler"]
-        LOW[Low Confidence\nAmbiguous Output]
-        LOGIC[Logic Error\nIncorrect Reasoning]
-        TOOL[Tool Failure\nAPI · Retrieval · Timeout]
-        SCOPE[Scope Gap\nMissing Context or Artifacts]
-        FATAL[Fatal Error\nUnrecoverable · Escalate]
+        LOW["Low Confidence<br/>Ambiguous Output"]
+        LOGIC["Logic Error<br/>Incorrect Reasoning"]
+        TOOL["Tool Failure<br/>API · Retrieval · Timeout"]
+        SCOPE["Scope Gap<br/>Missing Context or Artifacts"]
+        FATAL["Fatal Error<br/>Unrecoverable · Escalate"]
         FAIL -->|confidence below threshold| LOW
         FAIL -->|incorrect reasoning| LOGIC
         FAIL -->|external dependency| TOOL
@@ -643,11 +643,11 @@ flowchart TD
     end
 
     subgraph RECOVER["④ RECOVER — Remediation Actions"]
-        R1[Retry with Refined Prompt\nAdjust Instructions · Narrow Scope]
-        R2[Retry with Chain of Thought\nForce Step-by-Step Reasoning]
-        R3[Retry Tool Call\nBackoff · Fallback Source]
-        R4[Re-run Context Assembly\nExpand Retrieval · Flag Scope Gap]
-        HC{Human Checkpoint\nEscalate for Review}
+        R1["Retry with Refined Prompt<br/>Adjust Instructions · Narrow Scope"]
+        R2["Retry with Chain of Thought<br/>Force Step-by-Step Reasoning"]
+        R3["Retry Tool Call<br/>Backoff · Fallback Source"]
+        R4["Re-run Context Assembly<br/>Expand Retrieval · Flag Scope Gap"]
+        HC{"Human Checkpoint<br/>Escalate for Review"}
         LOW --> R1
         LOGIC --> R2
         TOOL --> R3
@@ -660,9 +660,9 @@ flowchart TD
     end
 
     subgraph RESOLVE["⑤ RESOLVE — Close the Loop"]
-        RESUME[Resume Pipeline\nPass Corrected Output Forward]
-        LOG[Log Failure Pattern\nFeed to Improve Stage]
-        BLOCK[Block Pipeline\nAwait Human Decision]
+        RESUME["Resume Pipeline<br/>Pass Corrected Output Forward"]
+        LOG["Log Failure Pattern<br/>Feed to Improve Stage"]
+        BLOCK["Block Pipeline<br/>Await Human Decision"]
         HC -->|approved| RESUME
         HC -->|unresolvable| BLOCK
         R1 -->|pass| RESUME
@@ -703,10 +703,10 @@ flowchart TD
 ```mermaid
 flowchart TD
     subgraph SIGNAL["① SIGNAL — Capture Feedback"]
-        MON[Pipeline Monitor\nOutputs · Decisions · Failures]
-        HF[Human Corrections\nApprovals · Revisions · Rejections]
-        EVAL[Eval Scores\nLLM-as-Judge · Rule Check Results]
-        DRIFT[Drift Detection\nDegraded Output Quality Over Time]
+        MON["Pipeline Monitor<br/>Outputs · Decisions · Failures"]
+        HF["Human Corrections<br/>Approvals · Revisions · Rejections"]
+        EVAL["Eval Scores<br/>LLM-as-Judge · Rule Check Results"]
+        DRIFT["Drift Detection<br/>Degraded Output Quality Over Time"]
         MON --> HF
         MON --> EVAL
         MON --> DRIFT
@@ -717,10 +717,10 @@ flowchart TD
         HF --> RTR
         EVAL --> RTR
         DRIFT --> RTR
-        PROMPT[Prompt Issue\nInstructions Unclear · Incomplete]
-        RETRIEVE[Retrieval Issue\nWrong Docs · Missing Context]
-        SKILL[Skill File Issue\nRole Poorly Defined · Outdated]
-        EVALDS[Eval Dataset Issue\nScoring Criteria Stale · Gaps]
+        PROMPT["Prompt Issue<br/>Instructions Unclear · Incomplete"]
+        RETRIEVE["Retrieval Issue<br/>Wrong Docs · Missing Context"]
+        SKILL["Skill File Issue<br/>Role Poorly Defined · Outdated"]
+        EVALDS["Eval Dataset Issue<br/>Scoring Criteria Stale · Gaps"]
         RTR -->|bad output pattern| PROMPT
         RTR -->|wrong context retrieved| RETRIEVE
         RTR -->|agent behavior drift| SKILL
@@ -728,10 +728,10 @@ flowchart TD
     end
 
     subgraph IMPROVE["③ IMPROVE — Apply the Correction"]
-        UP1[Refine Prompt\nUpdate Instructions · Add Examples]
-        UP2[Update Retrieval Index\nRe-tag · Expand · Rerank]
-        UP3[Update Skill File\nRevise Playbook · Add Constraints]
-        UP4[Expand Eval Dataset\nAdd Failure Cases · Adjust Scoring]
+        UP1["Refine Prompt<br/>Update Instructions · Add Examples"]
+        UP2["Update Retrieval Index<br/>Re-tag · Expand · Rerank"]
+        UP3["Update Skill File<br/>Revise Playbook · Add Constraints"]
+        UP4["Expand Eval Dataset<br/>Add Failure Cases · Adjust Scoring"]
         PROMPT --> UP1
         RETRIEVE --> UP2
         SKILL --> UP3
@@ -739,9 +739,9 @@ flowchart TD
     end
 
     subgraph VALIDATE["④ VALIDATE — Confirm the Fix"]
-        TEST[Regression Test\nRun Against Known Cases]
-        HC{Human Checkpoint\nApprove Update?}
-        SHIP[Ship Improvement\nDeploy to Live Pipeline]
+        TEST["Regression Test<br/>Run Against Known Cases"]
+        HC{"Human Checkpoint<br/>Approve Update?"}
+        SHIP["Ship Improvement<br/>Deploy to Live Pipeline"]
         UP1 --> TEST
         UP2 --> TEST
         UP3 --> TEST
@@ -752,10 +752,10 @@ flowchart TD
     end
 
     subgraph CLOSE["⑤ CLOSE — Feed Back Into the System"]
-        IDX[Retrieval Index\nSharpened Embeddings]
-        PROMPTS[Agent Prompts\nRefined Instructions]
-        SKILLS[Skill Files\nUpdated Playbooks]
-        EVALS[Eval Datasets\nExpanded Coverage]
+        IDX["Retrieval Index<br/>Sharpened Embeddings"]
+        PROMPTS["Agent Prompts<br/>Refined Instructions"]
+        SKILLS["Skill Files<br/>Updated Playbooks"]
+        EVALS["Eval Datasets<br/>Expanded Coverage"]
         SHIP --> IDX
         SHIP --> PROMPTS
         SHIP --> SKILLS
