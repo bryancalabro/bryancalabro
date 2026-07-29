@@ -25,24 +25,28 @@ AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelin
 ## Architectures & Frameworks
 
 <details>
-<summary><b>1. Forward Deployed Engineering Methodology</b><br><i>The Stage 0–8 closed-loop process for turning tacit institutional knowledge into production-ready agents, with the principal artifact and the three skill tiers it produces.</i></summary>
+<summary><b>1. Forward Deployed Engineering Methodology</b><br><i>The Stage 0–10 closed-loop process for turning tacit institutional knowledge into production-ready agents, with reverse synchronization returning engineering knowledge to the governing specification corpus.</i></summary>
 <br>
 
 ```mermaid
 flowchart TD
-    subgraph LOOP["① STAGES 0–8 — Closed-Loop Methodology · Output Per Stage"]
+    subgraph LOOP["① STAGES 0–10 — Closed-Loop Methodology · Output Per Stage"]
         direction TB
         S0["Stage 0 — Scope<br/>Capability Boundaries<br/>→ Capability Map"]
-        S1["Stage 1 — Extract<br/>Structured Interviews<br/>→ Verbatim Transcripts"]
+        S1["Stage 1 — Extract<br/>Interviews + Doc Estate<br/>→ Normalized Evidence"]
         S2["Stage 2 — Synthesize<br/>Clean · Flag · Resolve<br/>→ Resolved Rule Sets"]
-        S3["Stage 3 — Encode<br/>Canonical Skill Specs<br/>→ Atomic Capability Specs"]
-        S4["Stage 4 — Living Spec<br/>Four Layers, One Doc<br/>→ Living Agent Spec"]
+        S3["Stage 3 — Encode<br/>Spec Builder Emits<br/>→ Canonical Specs"]
+        S4["Stage 4 — Assemble<br/>Four Layers, One Corpus<br/>→ Specification Corpus"]
         S5["Stage 5 — Validate<br/>Confirm · Design Evals<br/>→ Approved Eval Suite"]
-        S6["Stage 6 — Build<br/>Compile · Integrate<br/>→ Compiled Runtime Skills"]
-        S7["Stage 7 — Deploy<br/>Observe · Trace<br/>→ Telemetry + Deviations"]
-        S8["Stage 8 — Iterate<br/>New Interviews · Redeploy<br/>→ Updated Specs"]
-        S0 --> S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7 --> S8
-        S8 -.->|perpetual loop| S0
+        S6["Stage 6 — Implement<br/>Build · Integrate · Test<br/>→ Discovered Constraints"]
+        S7["Stage 7 — Reverse Sync<br/>Discoveries → Corpus<br/>→ Updated Corpus"]
+        S8["Stage 8 — Generate<br/>Skills From Valid Specs<br/>→ Runtime Skill Library"]
+        S9["Stage 9 — Deploy<br/>Observe · Trace<br/>→ Telemetry + Deviations"]
+        S10["Stage 10 — Iterate<br/>New Evidence · Redeploy<br/>→ Refreshed Corpus"]
+        S0 --> S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7 --> S8 --> S9 --> S10
+        S7 -.->|reverse sync| S4
+        S9 -.->|deviation to contract| S4
+        S10 -.->|perpetual loop| S0
     end
 
     subgraph TIERS["② THREE SKILL TIERS — Never Exposed Beyond Their Layer"]
@@ -52,14 +56,15 @@ flowchart TD
         IM[Implementation Skills]
     end
 
-    S3 -.->|compiled into| RT
+    S8 -.->|generated from corpus| RT
     S2 -.->|invoked across| SB
+    S7 -.->|invoked across| SB
     S6 -.->|invoked at| IM
 
     classDef loopStyle fill:#1a1a2e,stroke:#4a9eff,color:#e0e0ff
     classDef tierStyle fill:#1a0a2e,stroke:#9b59b6,color:#e0e0ff
 
-    class S0,S1,S2,S3,S4,S5,S6,S7,S8 loopStyle
+    class S0,S1,S2,S3,S4,S5,S6,S7,S8,S9,S10 loopStyle
     class RT,SB,IM tierStyle
 ```
 
@@ -721,10 +726,12 @@ flowchart TD
         RETRIEVE["Retrieval Issue<br/>Wrong Docs · No Context"]
         SKILL["Skill File Issue<br/>Poorly Defined · Outdated"]
         EVALDS["Eval Dataset Issue<br/>Criteria Stale · Gaps"]
+        SPEC["Spec Corpus Issue<br/>Contract · Rule Drift"]
         RTR -->|bad output pattern| PROMPT
         RTR -->|wrong context retrieved| RETRIEVE
         RTR -->|agent behavior drift| SKILL
         RTR -->|evals missing edge cases| EVALDS
+        RTR -->|spec contradicted by build| SPEC
     end
 
     subgraph IMPROVE["③ IMPROVE — Apply the Correction"]
@@ -732,10 +739,12 @@ flowchart TD
         UP2["Update Retrieval Index<br/>Re-tag · Expand · Rerank"]
         UP3["Update Skill File<br/>Revise · Add Constraints"]
         UP4["Expand Eval Dataset<br/>Add Cases · Adjust Scoring"]
+        UP5["Reverse Sync to Corpus<br/>Update · Re-validate"]
         PROMPT --> UP1
         RETRIEVE --> UP2
         SKILL --> UP3
         EVALDS --> UP4
+        SPEC --> UP5
     end
 
     subgraph VALIDATE["④ VALIDATE — Confirm the Fix"]
@@ -746,6 +755,7 @@ flowchart TD
         UP2 --> TEST
         UP3 --> TEST
         UP4 --> TEST
+        UP5 --> TEST
         TEST --> HC
         HC -->|revise| IMPROVE
         HC -->|approved| SHIP
@@ -756,14 +766,18 @@ flowchart TD
         PROMPTS["Agent Prompts<br/>Refined Instructions"]
         SKILLS["Skill Files<br/>Updated Playbooks"]
         EVALS["Eval Datasets<br/>Expanded Coverage"]
+        SPECS["Specification Corpus<br/>Governing Artifact"]
         SHIP --> IDX
         SHIP --> PROMPTS
         SHIP --> SKILLS
         SHIP --> EVALS
+        SHIP --> SPECS
         IDX -->|better retrieval| MON
         PROMPTS -->|better outputs| MON
         SKILLS -->|better behavior| MON
         EVALS -->|better scoring| MON
+        SPECS -->|regenerate| SKILLS
+        SPECS -->|better specs| MON
     end
 
     classDef signalStyle fill:#1a1a2e,stroke:#4a9eff,color:#e0e0ff
@@ -774,10 +788,10 @@ flowchart TD
     classDef humanStyle fill:#2e1f00,stroke:#f5a623,color:#ffe0a0,stroke-width:2px
 
     class MON,HF,EVAL,DRIFT signalStyle
-    class RTR,PROMPT,RETRIEVE,SKILL,EVALDS classifyStyle
-    class UP1,UP2,UP3,UP4 improveStyle
+    class RTR,PROMPT,RETRIEVE,SKILL,EVALDS,SPEC classifyStyle
+    class UP1,UP2,UP3,UP4,UP5 improveStyle
     class TEST,SHIP validateStyle
-    class IDX,PROMPTS,SKILLS,EVALS closeStyle
+    class IDX,PROMPTS,SKILLS,EVALS,SPECS closeStyle
     class HC humanStyle
 ```
 
