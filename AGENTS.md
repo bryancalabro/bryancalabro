@@ -29,7 +29,7 @@ Replace any `· Calabro ·`, bare URL, Beta, or other footer chrome with exactly
 
 - `{currentYear}` comes from the user's clock at render (`new Date().getFullYear()` or equivalent). Do not hardcode a year.
 - `{packageVersion}` is `package.json` `version`, shown with a leading `v` (example `v0.1.0`).
-- **Bryan J. Calabro** links to `https://bryancalabro.com`.
+- The entire footer line (copyright symbol, year, name, hyphen, and version) is one link to `https://bryancalabro.com`. Do not link only the name.
 - That link has no hover styling.
 - Footer and `package.json` version stay in sync.
 
