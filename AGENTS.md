@@ -35,11 +35,18 @@ Replace any `· Calabro ·`, bare URL, Beta, or other footer chrome with exactly
 
 ### Version bumps (every ship / production PR)
 
-Every ship commit that releases must bump `package.json`. The footer reads that version.
+Every ship commit that releases must bump `package.json` from that repo's current version (one increment). Never jump to a fixed target like `0.1.2`.
 
 Scheme: three-part `MAJOR.MINOR.PATCH`. The rightmost component increments `1` through `9`, then rolls over, increments the next component left, and resets the right to `0`. Same rule for every major.
 
-Examples: `0.0.9` to `0.1.0`; `0.9.9` to `1.0.0`; `1.9.9` to `2.0.0`. Write `v0.2.0`, never `v.0.2.0`.
+Examples:
+- If current is `0.0.1`, bump to `0.0.2` (not `0.1.2`)
+- `0.0.9` to `0.1.0`
+- `0.1.1` to `0.1.2` only when it was already `0.1.1`
+- `0.9.9` to `1.0.0`
+- `1.0.9` to `1.1.0`, then on to `1.9.9` to `2.0.0`
+
+Write versions as `v0.2.0`, never `v.0.2.0`. Footer must show the new version after the bump.
 
 ### Agent rule files
 
