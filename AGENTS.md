@@ -16,6 +16,7 @@ do not appear on the profile.
 - Fix lint failures, test failures, and flaky tests when you see them, including ones you did not cause.
 - Do not use Chromium, Playwright, chromium-cli, or `npx playwright` to drive or screenshot the app. Verify UI by reading the rendered output or asking for a browser check.
 - Verify facts against primary sources: code, data files, official text. Do not treat transcripts, meetings, or recollection as fact. Those are sources of intent.
+- On every ship commit / production PR, bump `package.json` from the repo's current version per §2. Never jump to a fixed target. Keep footer `v{version}` in sync.
 
 ## House rules
 
@@ -35,18 +36,20 @@ Replace any `· Calabro ·`, bare URL, Beta, or other footer chrome with exactly
 
 ### Version bumps (every ship / production PR)
 
-Every ship commit that releases must bump `package.json` from that repo's current version (one increment). Never jump to a fixed target like `0.1.2`.
+Every ship commit that releases must bump `package.json` from that repo's current version (one increment on the rightmost digit). Never jump to a fixed target like `0.1.2`. Prefer one increment per ship commit; prefer one commit per footer PR. A second bump in the same PR is OK only if a material amend needs a second ship commit.
 
 Scheme: three-part `MAJOR.MINOR.PATCH`. The rightmost component increments `1` through `9`, then rolls over, increments the next component left, and resets the right to `0`. Same rule for every major.
 
 Examples:
-- If current is `0.0.1`, bump to `0.0.2` (not `0.1.2`)
+- If current is `0.0.1`, bump to `0.0.2`
 - `0.0.9` to `0.1.0`
 - `0.1.1` to `0.1.2` only when it was already `0.1.1`
 - `0.9.9` to `1.0.0`
 - `1.0.9` to `1.1.0`, then on to `1.9.9` to `2.0.0`
 
 Write versions as `v0.2.0`, never `v.0.2.0`. Footer must show the new version after the bump.
+
+If the repo has no `package.json`, on first ship create a minimal `package.json` with `"version": "0.0.1"` (plus normal name/private fields as needed). Footer shows `v0.0.1`. Never invent a footer version that is not written to `package.json`. Next ships bump from there.
 
 ### Agent rule files
 
