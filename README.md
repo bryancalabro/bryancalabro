@@ -25,7 +25,51 @@ AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelin
 ## Architectures & Frameworks
 
 <details>
-<summary><b>1. Forward Deployed Engineering Methodology</b><br><i>The Stage 0–10 closed-loop process for turning tacit institutional knowledge into production-ready agents, with reverse synchronization returning engineering knowledge to the governing specification corpus.</i></summary>
+<summary><b>1. Specification-Driven Build Factory</b><br><i>A single control-plane record drives a system from idea intake through verified production, and observed evidence feeds back to redispatch the next action automatically.</i></summary>
+<br>
+
+```mermaid
+flowchart TD
+    subgraph LIFECYCLE["① BUILD LIFECYCLE — Idea to Verified Live"]
+        direction TB
+        L1["Idea Intake<br/>Captured as a Record<br/>→ Control Plane Entry"]
+        L2["Record Completed<br/>Reqs + Design Rules<br/>→ Buildable Spec"]
+        L3["Build<br/>Scaffold + Implement<br/>→ Working System"]
+        L4["Definition of Done<br/>Acceptance Criteria<br/>→ Verifiable Contract"]
+        L5["Verification Gate<br/>Automated Checks Run<br/>→ Pass / Fail Receipt"]
+        L6["Infra Provisioning<br/>Environment + Routing<br/>→ Deployable Target"]
+        L7["Deployment<br/>Ship to Production<br/>→ Live Artifact"]
+        L8["Live Verification<br/>Confirm Serving Correctly<br/>→ Observed State"]
+        L1 --> L2 --> L3 --> L4 --> L5
+        L5 -.->|fail| L3
+        L5 -->|pass| L6 --> L7 --> L8
+    end
+
+    subgraph GOVERNANCE["② CONTROL PLANE — Self-Governing Feedback"]
+        direction TB
+        G1["Control Plane Record<br/>Single Source of Truth"]
+        G2["Evidence Capture<br/>From Observation Only"]
+        G3["Work Queue Triage<br/>Ranked by Urgency"]
+        G1 -.->|dispatches next action| L1
+        L8 -.->|writes observed state| G2
+        G2 -.->|updates| G1
+        G1 -.->|ranks every record| G3
+        G3 -.->|redispatches to whichever stage needs it| L3
+        G3 -.->|redispatches to whichever stage needs it| L5
+        G3 -.->|redispatches to whichever stage needs it| L6
+    end
+
+    classDef lifeStyle fill:#1a1a2e,stroke:#4a9eff,color:#e0e0ff
+    classDef govStyle fill:#1a0a2e,stroke:#9b59b6,color:#e0e0ff
+
+    class L1,L2,L3,L4,L5,L6,L7,L8 lifeStyle
+    class G1,G2,G3 govStyle
+```
+
+</details>
+
+<details>
+<summary><b>2. Forward Deployed Engineering Methodology</b><br><i>The Stage 0–10 closed-loop process for turning tacit institutional knowledge into production-ready agents, with reverse synchronization returning engineering knowledge to the governing specification corpus.</i></summary>
 <br>
 
 ```mermaid
@@ -73,7 +117,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>2. Three Phases Maturity Model</b><br><i>Mapping the maturity phases from human-driven orchestration to fully autonomous agentic systems.</i></summary>
+<summary><b>3. Three Phases Maturity Model</b><br><i>Mapping the maturity phases from human-driven orchestration to fully autonomous agentic systems.</i></summary>
 <br>
 
 ```mermaid
@@ -135,7 +179,7 @@ flowchart LR
 </details>
 
 <details>
-<summary><b>3. SDLC Inversion</b><br><i>The paradigm shift from traditional document-driven SDLC to AI-augmented system-driven SDLC.</i></summary>
+<summary><b>4. SDLC Inversion</b><br><i>The paradigm shift from traditional document-driven SDLC to AI-augmented system-driven SDLC.</i></summary>
 <br>
 
 ```mermaid
@@ -176,7 +220,7 @@ flowchart LR
 </details>
 
 <details>
-<summary><b>4. Stack Layer Diagram</b><br><i>The foundational architecture stack mapping models, skills, agents, orchestration, and surface delivery.</i></summary>
+<summary><b>5. Stack Layer Diagram</b><br><i>The foundational architecture stack mapping models, skills, agents, orchestration, and surface delivery.</i></summary>
 <br>
 
 ```mermaid
@@ -241,7 +285,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>5. Agent System Topology</b><br><i>The runtime topology of an agentic system — how triggers, orchestration, agents, skills, and governance fit together.</i></summary>
+<summary><b>6. Agent System Topology</b><br><i>The runtime topology of an agentic system — how triggers, orchestration, agents, skills, and governance fit together.</i></summary>
 <br>
 
 ```mermaid
@@ -307,7 +351,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>6. Ticket Lifecycle & Human Revision Loop</b><br><i>The full round-trip of a ticket — from creation in an external tracker, through the AI pipeline, back to the tracker for human review, and re-entry on edit request.</i></summary>
+<summary><b>7. Ticket Lifecycle & Human Revision Loop</b><br><i>The full round-trip of a ticket — from creation in an external tracker, through the AI pipeline, back to the tracker for human review, and re-entry on edit request.</i></summary>
 <br>
 
 ```mermaid
@@ -383,7 +427,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>7. AI Delivery Pipeline</b><br><i>The end-to-end workflow of how tickets and tasks move through the delivery pipeline.</i></summary>
+<summary><b>8. AI Delivery Pipeline</b><br><i>The end-to-end workflow of how tickets and tasks move through the delivery pipeline.</i></summary>
 <br>
 
 ```mermaid
@@ -474,7 +518,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>8. Context Assembly Flow</b><br><i>The process of extracting, indexing, and assembling unstructured tickets into agent-ready context packs.</i></summary>
+<summary><b>9. Context Assembly Flow</b><br><i>The process of extracting, indexing, and assembling unstructured tickets into agent-ready context packs.</i></summary>
 <br>
 
 ```mermaid
@@ -543,7 +587,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>9. Agent Handoff Flow</b><br><i>The internal execution loop outlining how a single agent reasons, packages, and routes tasks.</i></summary>
+<summary><b>10. Agent Handoff Flow</b><br><i>The internal execution loop outlining how a single agent reasons, packages, and routes tasks.</i></summary>
 <br>
 
 ```mermaid
@@ -616,7 +660,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>10. Retry and Error Routing</b><br><i>The evaluation routing and remediation process for correctly handling and recovering from agent failures.</i></summary>
+<summary><b>11. Retry and Error Routing</b><br><i>The evaluation routing and remediation process for correctly handling and recovering from agent failures.</i></summary>
 <br>
 
 ```mermaid
@@ -702,7 +746,7 @@ flowchart TD
 </details>
 
 <details>
-<summary><b>11. Feedback Loop</b><br><i>The continuous improvement loop for feeding failure patterns and evaluations back into system components.</i></summary>
+<summary><b>12. Feedback Loop</b><br><i>The continuous improvement loop for feeding failure patterns and evaluations back into system components.</i></summary>
 <br>
 
 ```mermaid
