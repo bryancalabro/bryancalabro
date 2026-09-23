@@ -25,45 +25,70 @@ AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelin
 ## Architectures & Frameworks
 
 <details>
-<summary><b>1. Specification-Driven Build Factory</b><br><i>A single control-plane record drives a system from idea intake through verified production, and observed evidence feeds back to redispatch the next action automatically.</i></summary>
+<summary><b>1. Specification-Driven Build Factory</b><br><i>One command, <code>/new-app</code>, carries a catalog record from idea to a verified live host, a nightly factory stamps completion from evidence, and every run's lessons flow back into the rules the next build starts from.</i></summary>
 <br>
 
 ```mermaid
 flowchart TD
-    subgraph LIFECYCLE["① BUILD LIFECYCLE — Idea to Verified Live"]
+    subgraph RUN["① /new-app · One Run, Catalog Record to Verified Live Host"]
         direction TB
-        L1["Idea Intake<br/>Captured as a Record<br/>→ Control Plane Entry"]
-        L2["Record Completed<br/>Reqs + Design Rules<br/>→ Buildable Spec"]
-        L3["Build<br/>Scaffold + Implement<br/>→ Working System"]
-        L4["Definition of Done<br/>Acceptance Criteria<br/>→ Verifiable Contract"]
-        L5["Verification Gate<br/>Automated Checks Run<br/>→ Pass / Fail Receipt"]
-        L6["Infra Provisioning<br/>Environment + Routing<br/>→ Deployable Target"]
-        L7["Deployment<br/>Ship to Production<br/>→ Live Artifact"]
-        L8["Live Verification<br/>Confirm Serving Correctly<br/>→ Observed State"]
-        L1 --> L2 --> L3 --> L4 --> L5
-        L5 -.->|fail| L3
-        L5 -->|pass| L6 --> L7 --> L8
+        N0["Pick Record<br/>Build Lane · Named · Idea<br/>→ One Catalog Record"]
+        N1["Claim Repo<br/>Ask GitHub, Not Catalog<br/>→ Empty Private Repo"]
+        N2["Read the Row<br/>/inventory row<br/>→ Host · Family · Stack"]
+        N3["Research Pass<br/>/patterns · Mobbin<br/>→ Cited UI Sources"]
+        N4["Scaffold<br/>Tokens · Footer · CI<br/>→ Zero-FAIL House Audit"]
+        N5["Provision<br/>/provision · Idempotent<br/>→ Project + Host + www"]
+        N6["Blueprint<br/>Derived From the Prompt<br/>→ Acceptance Checks"]
+        N7["Build<br/>/phase N · One Feature<br/>→ Verified in the App"]
+        N8["Phase Gate<br/>verify-phase.mjs<br/>→ Fresh Receipt"]
+        N9["Ship Gates<br/>4G · Offline · No Errors<br/>→ Observed, Not Assumed"]
+        N10["Ship<br/>/ship · One Version Bump<br/>→ PR Labeled greenfield"]
+        N11["Greenfield Merge<br/>verify Green → Rebase<br/>→ Self-Merged to main"]
+        N12["Deploy + Confirm<br/>READY · Canonical = Host<br/>→ Verified Live Host"]
+        N0 --> N1 --> N2 --> N3 --> N4
+        N4 -->|scaffold becomes main| N5 --> N6 --> N7 --> N8
+        N8 -.->|red · learn · retry max 3| N7
+        N8 -->|last phase green| N9 --> N10 --> N11
+        N11 -.->|verify red · fix · push| N10
+        N11 --> N12
     end
 
-    subgraph GOVERNANCE["② CONTROL PLANE — Self-Governing Feedback"]
+    subgraph CONTROL["② CONTROL PLANE · The Catalog Governs Itself"]
         direction TB
-        G1["Control Plane Record<br/>Single Source of Truth"]
-        G2["Evidence Capture<br/>From Observation Only"]
-        G3["Work Queue Triage<br/>Ranked by Urgency"]
-        G1 -.->|dispatches next action| L1
-        L8 -.->|writes observed state| G2
-        G2 -.->|updates| G1
-        G1 -.->|ranks every record| G3
-        G3 -.->|redispatches to whichever stage needs it| L3
-        G3 -.->|redispatches to whichever stage needs it| L5
-        G3 -.->|redispatches to whichever stage needs it| L6
+        K1["Catalog<br/>specs/app-inventory<br/>→ One Record per App"]
+        K2["Inventory Stamp<br/>Nightly + On Dispatch<br/>→ Completed From Evidence"]
+        K3["Queue<br/>/queue · One Lane Each<br/>→ Ranked Fleet Work"]
+        K4["Pipeline<br/>/pipeline namekey<br/>→ The One Next Command"]
+        K1 -.->|files every record| K3
+        K3 -.->|one record| K4
+        K2 -.->|stamp PR merges itself| K1
     end
+
+    subgraph LEARN["③ LEARNING LOOP · Every Build Teaches the Next"]
+        direction TB
+        R1["Phase Learnings<br/>learnings.json<br/>→ Repo AGENTS.md"]
+        R2["Retro<br/>/retro · docs/retros<br/>→ Closeout PR"]
+        R3["House Rules + Skills<br/>Promoted Only by PR<br/>→ Every Next Build"]
+        R1 -.-> R2 -.->|house-rule + skill PRs| R3
+    end
+
+    K3 -.->|build lane| N0
+    N0 -.->|idea writes its record first| K1
+    N12 -.->|dispatches the stamp| K2
+    K4 -.->|no project or domain| N5
+    K4 -.->|gate red or regressed| N7
+    K4 -.->|built, never deployed| N12
+    N8 -.->|every phase| R1
+    N12 -.->|run closes| R2
+    R3 -.->|pre-wired in every scaffold| N4
 
     classDef lifeStyle fill:#1a1a2e,stroke:#4a9eff,color:#e0e0ff
     classDef govStyle fill:#1a0a2e,stroke:#9b59b6,color:#e0e0ff
+    classDef learnStyle fill:#0d2e1a,stroke:#2ecc71,color:#e0e0ff
 
-    class L1,L2,L3,L4,L5,L6,L7,L8 lifeStyle
-    class G1,G2,G3 govStyle
+    class N0,N1,N2,N3,N4,N5,N6,N7,N8,N9,N10,N11,N12 lifeStyle
+    class K1,K2,K3,K4 govStyle
+    class R1,R2,R3 learnStyle
 ```
 
 </details>
