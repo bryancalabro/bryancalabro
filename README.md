@@ -1,6 +1,10 @@
-# Solutions that are smart, useful, and a little dangerous.
+# Bryan J. Calabro
 
-AI Orchestration &nbsp;|&nbsp; Agent Architecture &nbsp;|&nbsp; Delivery Pipelines
+AI orchestration and agent architecture at Deloitte, based in Leesburg, VA. I design multi-agent systems, specification-driven build pipelines, and the web apps they ship.
+
+**Solutions that are smart, useful, and a little dangerous.**
+
+[bryancalabro.com](https://bryancalabro.com/) &nbsp;|&nbsp; [Research](https://research.bryancalabro.com/) &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/in/bryancalabro/)
 
 ```
                 (                   (        )
