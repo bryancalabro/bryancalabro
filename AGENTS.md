@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This repo is `bryancalabro/bryancalabro` — the special repo whose `README.md` renders on the
+This repo is `bryancalabro/bryancalabro`, the special repo whose `README.md` renders on the
 GitHub **profile page**. GitHub renders only `README.md` there; every other file (including this
 one) is ignored by the profile renderer. The repo is public, so files here are browsable, but they
 do not appear on the profile.
@@ -59,9 +59,23 @@ Root `AGENTS.md` is the only real rule file. Root `CLAUDE.md` is wiring only: `@
 
 Open PRs. Do not push `main` without approval. Do not delete Vercel projects or domains.
 
-## Mermaid diagrams — label rules
+## Generated blocks
 
-`README.md` contains 11 Mermaid flowcharts. GitHub's Mermaid renderer clips node labels that are
+The recent apps table and the twelve Mermaid diagrams are generated from calabrodesign, which holds
+their source: the app inventory (`specs/app-inventory/`) and `docs/systems/` (one `.mmd` file per
+diagram, plus `systems.json` for titles, summaries, and research links). The same diagrams render on
+the Systems tab at bryancalabro.com. Edit them there, then from calabrodesign run:
+
+```bash
+node scripts/profile-readme.mjs ../bryancalabro/README.md
+```
+
+It rewrites only what sits between the `<!-- recent-apps:start/end -->` and `<!-- systems:start/end -->`
+markers. Never hand-edit inside them; the next run overwrites it.
+
+## Mermaid diagrams: label rules
+
+`README.md` contains 12 Mermaid flowcharts. GitHub's Mermaid renderer clips node labels that are
 too wide instead of wrapping them, so labels must be authored defensively. Two rules, both required:
 
 ### 1. Use quoted labels with `<br/>`, never `\n`
@@ -77,7 +91,7 @@ BAD:   ROUTER[Task Router\nWhich Agent · What Order]
 ### 2. Keep every line to **26 characters or fewer**
 
 This is the one that actually matters, and it applies per line, not per label. GitHub caps node
-width and clips the overflow — `<br/>` alone does not save you.
+width and clips the overflow; `<br/>` alone does not save you.
 
 Measured on the rendered profile page:
 
@@ -92,7 +106,7 @@ Measured on the rendered profile page:
 
 **Applies to:** every line of every node label, primary and secondary.
 
-**Does not apply to:** subgraph titles (`subgraph X["① STAGES 0–8 — …"]`). These size their own
+**Does not apply to:** subgraph titles (`subgraph X["① Stages 0–10: closed-loop methodology"]`). These size their own
 container rather than clipping, so long section headers are fine and should not be shortened.
 Edge labels (`-->|approved|`), `classDef`, and `class` lines are also unaffected.
 
@@ -102,16 +116,18 @@ The secondary line is a compressed tagline, not a sentence. To get under 26:
 
 - Drop the third item: `Decompose · Sequence · Decide` → `Decompose · Sequence`
 - Use the noun or the verb, not both: `Plans · Delegates · Self-Corrects` → `Plan · Delegate · Correct`
-- Abbreviate known terms: `Requirements · Architecture · Code Gen · QA` → `Reqs · Arch · Code · QA`
+- Abbreviate known terms: `Requirements · Architecture · Code gen · QA` → `Reqs · Arch · Code · QA`
 - Cut leading filler: `Feed back → Prompts · Index` → `→ Prompts · Index`
 
-Keep the `·` separator and Title Case — that is the established style across all 11 diagrams.
+Keep the `·` separator and sentence case, the house rule for every label: capitalize the first word of
+each line and each `·` item, and keep acronyms, product names, and code (`/new-app`, `learnings.json`)
+as they are spelled.
 
 ### Verifying before commit
 
 Local Mermaid (`@mermaid-js/mermaid-cli`) word-wraps labels and renders *both* the broken and
 correct forms fine, so a clean local render does **not** prove the profile page is clean. Use it
-only to confirm diagrams still parse. The character count is the real check — audit it directly:
+only to confirm diagrams still parse. The character count is the real check; audit it directly:
 
 ```bash
 # flag any label line over 26 chars inside mermaid blocks
@@ -128,5 +144,5 @@ s.forEach((l,i)=>{
 });'
 ```
 
-Then eyeball the rendered page on github.com/bryancalabro after pushing — that is the only
+Then eyeball the rendered page on github.com/bryancalabro after pushing; that is the only
 authoritative check.
