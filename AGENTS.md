@@ -63,8 +63,8 @@ Open PRs. Do not push `main` without approval. Do not delete Vercel projects or 
 
 The recent apps table and the twelve Mermaid diagrams are generated from calabrodesign, which holds
 their source: the app inventory (`specs/app-inventory/`) and `docs/systems/` (one `.mmd` file per
-diagram, plus `systems.json` for titles, summaries, and research links). The same diagrams render on
-the Systems tab at bryancalabro.com. Edit them there, then from calabrodesign run:
+diagram, plus `systems.json` for titles, summaries, and research links). Edit them there, then from
+calabrodesign run:
 
 ```bash
 node scripts/profile-readme.mjs ../bryancalabro/README.md
